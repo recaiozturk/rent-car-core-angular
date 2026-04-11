@@ -1,5 +1,5 @@
 ﻿namespace RentCarServer.Application.Services;
-internal interface IUserContext
+public interface IUserContext
 {
     public Guid GetUserId();
 }
