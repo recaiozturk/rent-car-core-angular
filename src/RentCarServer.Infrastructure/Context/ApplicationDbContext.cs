@@ -14,7 +14,8 @@ internal sealed class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyGlobalFilters(); //otomatik olarka sorgulara eklenir  ApplyGlobalFilters içindeki filtreler
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly); //ApplicationDbContext ile aynı assembly'de bulunan tüm IEntityTypeConfiguration implementasyonlarını bulup uygular
+        modelBuilder.ApplyGlobalFilters(); //otomatik olarak sorgulara eklenir,  ApplyGlobalFilters içindeki filtreler
         base.OnModelCreating(modelBuilder);
     }
 
